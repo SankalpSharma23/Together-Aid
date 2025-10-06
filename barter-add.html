@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Item - TOGETHER AID Barter System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/barter-add.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1 class="logo-text">TOGETHER AID</h1>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                 <div class="menu-section">
+                    <h3 class="menu-title">Main Dashboard</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item " onclick="window.location.href='demo.html'">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='map.tetsing.html'">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Live Map</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='community.html'">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='missing.html'">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add Missing</span>
+                        </li>
+                         <li class="menu-item active">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Barter Systemg</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">Emergency Services</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Medical</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Fire & Rescue</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Supplies</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">User Management</h3>
+                    <ul class="menu-items">
+                         <li class="menu-item " onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='profile.html'">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Profile</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Emergency Responder</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="main-content">
+            <!-- Top Header -->
+            <div class="top-header">
+                <div class="header-left">
+                    <!-- Add this inside the header-left div -->
+<button class="menu-toggle">
+    <i class="fas fa-bars"></i>
+</button>
+                    <div class="breadcrumb">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Barter System</span>
+                        <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
+                        <span>Add New Item</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="action-btn" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='community.html'">
+                            <i class="fas fa-comment"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Item Form -->
+            <div class="form-container">
+                <h2 class="form-title">
+                    <i class="fas fa-plus-circle"></i>
+                    Add Item to Barter System
+                </h2>
+                
+                <form id="barter-item-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="item-name">Item Name *</label>
+                            <input type="text" id="item-name" class="form-input" placeholder="e.g., Canned Food, Water Bottles" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="item-category">Category *</label>
+                            <select id="item-category" class="form-select" required>
+                                <option value="">Select a category</option>
+                                <option value="food-water">Food & Water</option>
+                                <option value="medical">Medical Supplies</option>
+                                <option value="shelter">Shelter & Clothing</option>
+                                <option value="tools">Tools & Equipment</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="services">Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="item-quantity">Quantity *</label>
+                            <input type="number" id="item-quantity" class="form-input" placeholder="e.g., 5" min="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="item-condition">Condition *</label>
+                            <select id="item-condition" class="form-select" required>
+                                <option value="">Select condition</option>
+                                <option value="new">New</option>
+                                <option value="excellent">Excellent</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                                <option value="poor">Poor</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="item-description">Description *</label>
+                        <textarea id="item-description" class="form-textarea" placeholder="Describe your item in detail. Include brand, expiration date (if applicable), size, etc." required></textarea>
+                        <p class="form-hint">Be as detailed as possible to help others understand what you're offering.</p>
+                    </div>
+                    
+                    
+                    <div class="section-divider">
+                        <span class="section-divider-text">Exchange Details</span>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="exchange-type">I Want To *</label>
+                            <select id="exchange-type" class="form-select" required>
+                                <option value="">Select exchange type</option>
+                                <option value="trade">Trade for something specific</option>
+                                <option value="offer">Offer without expectation</option>
+                                <option value="request">Request specific items</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="desired-item">Desired Item/Service</label>
+                            <input type="text" id="desired-item" class="form-input" placeholder="What do you need in exchange?">
+                            <p class="form-hint">Leave blank if offering without expectation</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label class="form-label" for="exchange-details">Exchange Details</label>
+                        <textarea id="exchange-details" class="form-textarea" placeholder="Provide details about the exchange you're looking for..."></textarea>
+                    </div>
+                    
+                    <div class="section-divider">
+                        <span class="section-divider-text">Contact Information</span>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="contact-name">Your Name *</label>
+                            <input type="text" id="contact-name" class="form-input" placeholder="Full Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="contact-phone">Phone Number *</label>
+                            <input type="tel" id="contact-phone" class="form-input" placeholder="+91 9807856788" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Email</label>
+                            <input type="email" id="contact-email" class="form-input" placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="contact-location">Your Location *</label>
+                            <input type="text" id="contact-location" class="form-input" placeholder="Enter your approximate location" required>
+                            <p class="form-hint">This will be shown to other users</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="urgent-item" class="form-checkbox">
+                            <label for="urgent-item" class="checkbox-label">Mark as urgent (this item is critically needed)</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms-agree" class="form-checkbox" required>
+                            <label for="terms-agree" class="checkbox-label">I agree to the terms of use and understand that I should only exchange items in safe, public locations</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-secondary">
+                            <i class="fas fa-times"></i>
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary" onclick="window.location.href='barter-add.html'" >
+                            <i class="fas fa-plus-circle"></i>
+                            Add Item to Barter
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>

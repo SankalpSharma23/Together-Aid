@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TogetherAid - Login & Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo-header">
+            <div class="logo-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h1 class="logo-text">TOGETHER AID</h1>
+            <p class="logo-subtitle">Crowdsourced Emergency Response Platform</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" id="login-tab">Login</div>
+            <div class="tab" id="signup-tab">Sign Up</div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-container active" id="login-form">
+            <div class="form-group">
+                <label class="form-label" for="login-email">Email</label>
+                <input type="email" id="login-email" class="form-input" placeholder="Enter your email">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="login-password">Password</label>
+                <input type="password" id="login-password" class="form-input" placeholder="Enter your password">
+            </div>
+            
+            <button class="btn-primary">Login to Account</button>
+            
+            <div class="form-footer">
+                Don't have an account? <a href="#" id="goto-signup">Sign Up</a>
+            </div>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container" id="signup-form">
+            <div class="user-type">
+                <div class="user-type-btn active" id="person-type">Person</div>
+                <div class="user-type-btn" id="rescuer-type">Rescuer</div>
+            </div>
+
+            <!-- Person Form -->
+            <div id="person-form">
+                <div class="form-group">
+                    <label class="form-label" for="person-name">Full Name *</label>
+                    <input type="text" id="person-name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-age">Age *</label>
+                    <input type="number" id="person-age" class="form-input" placeholder="Enter your age" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-location">Location *</label>
+                    <input type="text" id="person-location" class="form-input" placeholder="Enter your location" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-gender">Gender *</label>
+                    <select id="person-gender" class="form-select" required>
+                        <option value="">Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-phone">Phone Number *</label>
+                    <input type="tel" id="person-phone" class="form-input" placeholder="Enter your phone number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-email">Email *</label>
+                    <input type="email" id="person-email" class="form-input" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-password">Password *</label>
+                    <input type="password" id="person-password" class="form-input" placeholder="Create a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-contact">Emergency Contact *</label>
+                    <input type="text" id="person-contact" class="form-input" placeholder="Name and phone of emergency contact" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Health Issues (Select all that apply)</label>
+                    <div class="health-issues">
+                        <label class="health-issue-checkbox">
+                            <input type="checkbox" name="health-issues" value="heart"> Heart condition
+                        </label>
+                        <label class="health-issue-checkbox">
+                            <input type="checkbox" name="health-issues" value="diabetes"> Diabetes
+                        </label>
+                        <label class="health-issue-checkbox">
+                            <input type="checkbox" name="health-issues" value="asthma"> Asthma
+                        </label>
+                        <label class="health-issue-checkbox">
+                            <input type="checkbox" name="health-issues" value="mobility"> Mobility issues
+                        </label>
+                        <label class="health-issue-checkbox">
+                            <input type="checkbox" name="health-issues" value="vision"> Vision impairment
+                        </label>
+                        <label class="health-issue-checkbox">
+                            <input type="checkbox" name="health-issues" value="hearing"> Hearing impairment
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="person-other-health">Other Health Conditions</label>
+                    <textarea id="person-other-health" class="form-textarea" placeholder="List any other health conditions or allergies"></textarea>
+                </div>
+            </div>
+
+            <!-- Rescuer Form -->
+            <div id="rescuer-form" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label" for="rescuer-name">Full Name *</label>
+                    <input type="text" id="rescuer-name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="rescuer-gender">Gender *</label>
+                    <select id="rescuer-gender" class="form-select" required>
+                        <option value="">Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                        <option value="prefer-not-to-say">Prefer not to say</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="rescuer-phone">Phone Number *</label>
+                    <input type="tel" id="rescuer-phone" class="form-input" placeholder="Enter your phone number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="rescuer-email">Email *</label>
+                    <input type="email" id="rescuer-email" class="form-input" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="rescuer-password">Password *</label>
+                    <input type="password" id="rescuer-password" class="form-input" placeholder="Create a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="rescuer-organization">Organization (Optional)</label>
+                    <input type="text" id="rescuer-organization" class="form-input" placeholder="Enter your organization name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="rescuer-skills">Skills & Qualifications *</label>
+                    <textarea id="rescuer-skills" class="form-textarea" placeholder="List your emergency response skills and qualifications" required></textarea>
+                </div>
+            </div>
+            
+            <button class="btn-primary">Create Account</button>
+            
+            <div class="form-footer">
+                Already have an account? <a href="#" id="goto-login">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Corrected script tag - using src instead of href -->
+    <script src="js/login.js"></script>
+</body>
+</html>

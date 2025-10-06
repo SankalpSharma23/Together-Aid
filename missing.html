@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOGETHER AID - Missing Persons Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/missing.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Radio buttons for view toggling -->
+        <input type="radio" name="view-radio" id="view-dashboard-radio" checked>
+        <input type="radio" name="view-radio" id="view-form-radio">
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1 class="logo-text">TOGETHER AID</h1>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3 class="menu-title">Main Dashboard</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item" onclick="window.location.href='demo.html'">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='map.testing.html'">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Live Map</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='community.html'">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </li>
+                        <li class="menu-item active" onclick="window.location.href='missing.html'">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Missing Persons</span>
+                        </li>
+                         <li class="menu-item" onclick="window.location.href='barter.html'">
+                            <i class="fas fa-exchange-alt" ></i>
+                            <span>Barter System</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">Emergency Services</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Medical</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Fire & Rescue</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Supplies</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">User Management</h3>
+                    <ul class="menu-items">
+                         <li class="menu-item" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='profile.html'">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Profile</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Emergency Responder</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <!-- View Toggle -->
+            <div class="view-toggle">
+                <label for="view-dashboard-radio" class="toggle-option">Dashboard</label>
+                <label for="view-form-radio" class="toggle-option">Report Missing Person</label>
+            </div>
+                
+            <!-- Dashboard View -->
+            <div id="dashboard-view">
+                <!-- Dashboard Header -->
+                <div class="dashboard-header">
+                    <div>
+                        <h1 class="dashboard-title">Missing Persons Dashboard</h1>
+                        <p class="dashboard-subtitle">Track and manage reported missing persons in your community</p>
+                    </div>
+                    <label for="view-form-radio" class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Report Missing Person
+                    </label>
+                </div>
+
+                <!-- Missing Persons Grid -->
+                <div class="missing-persons-grid" id="missing-persons-container">
+                    <!-- Sample Person Cards (would need to be pre-populated) -->
+                    <div class="person-card">
+                        <div class="person-image">
+                            <div class="default-photo">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="person-status status-missing">Missing</div>
+                        </div>
+                        <div class="person-details">
+                            <h3 class="person-name">Sarah Johnson</h3>
+                            <div class="person-meta">
+                                <div class="person-meta-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>28 years</span>
+                                </div>
+                                <div class="person-meta-item">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                    <span>5'7"</span>
+                                </div>
+                            </div>
+                            <p class="person-description">
+                                Last seen wearing a blue jacket and jeans near Central Park. Has a tattoo of a butterfly on right wrist.
+                            </p>
+                            <div class="person-contact">
+                                <h4 class="contact-title">Contact Information</h4>
+                                <div class="contact-info">
+                                    <div class="contact-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>(555) 123-4567</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-user"></i>
+                                        <span>Reported by: Michael Johnson (Brother)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="person-card">
+                        <div class="person-image">
+                            <div class="default-photo">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="person-status status-found">Found</div>
+                        </div>
+                        <div class="person-details">
+                            <h3 class="person-name">David Chen</h3>
+                            <div class="person-meta">
+                                <div class="person-meta-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>35 years</span>
+                                </div>
+                                <div class="person-meta-item">
+                                    <i class="fas fa-ruler-vertical"></i>
+                                    <span>5'11"</span>
+                                </div>
+                            </div>
+                            <p class="person-description">
+                                Was missing for 3 days after the storm. Found safe at a community shelter. Reunited with family.
+                            </p>
+                            <div class="person-contact">
+                                <h4 class="contact-title">Contact Information</h4>
+                                <div class="contact-info">
+                                    <div class="contact-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>(555) 987-6543</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-user"></i>
+                                        <span>Reported by: Lisa Chen (Wife)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form View -->
+            <div id="form-view">
+                <!-- Missing Person Form -->
+                <div class="form-container">
+                    <div class="form-header">
+                        <div>
+                            <h2 class="form-title">Report Missing Person</h2>
+                            <p class="form-subtitle">Provide details to help locate the missing individual</p>
+                        </div>
+                        <div class="banner-content">
+                            <i class="fas fa-exclamation-circle banner-icon"></i>
+                            <div>
+                                <h3>Emergency Contact</h3>
+                                <p>Local Authorities: 911</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="missing-person-form" action="#" method="post">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="full-name" class="form-label">Full Name <span class="form-required"></span></label>
+                                <input type="text" id="full-name" class="form-input" placeholder="Enter full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="age" class="form-label">Age <span class="form-required"></span></label>
+                                <input type="number" id="age" class="form-input" placeholder="Enter age" min="0" max="120" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="gender" class="form-label">Gender <span class="form-required"></span></label>
+                                <select id="gender" class="form-select" required>
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="unknown">Unknown</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-seen" class="form-label">Last Seen <span class="form-required"></span></label>
+                                <input type="datetime-local" id="last-seen" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-location" class="form-label">Last Known Location <span class="form-required"></span></label>
+                                <input type="text" id="last-location" class="form-input" placeholder="Enter address or location" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="physical-desc" class="form-label">Physical Description <span class="form-required"></span></label>
+                                <textarea id="physical-desc" class="form-textarea" placeholder="Height, weight, hair color, eye color, distinguishing features" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clothing" class="form-label">Clothing Description</label>
+                                <textarea id="clothing" class="form-textarea" placeholder="What were they wearing when last seen?"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="medical-info" class="form-label">Medical Information</label>
+                                <textarea id="medical-info" class="form-textarea" placeholder="Medical conditions, medications, etc."></textarea>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="additional-info" class="form-label">Additional Information</label>
+                                <textarea id="additional-info" class="form-textarea" placeholder="Any other relevant details that could help with the search"></textarea>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label class="form-label">Upload Photo</label>
+                                <div class="photo-upload" onclick="document.getElementById('photo-upload').click()">
+                                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                                    <p class="upload-text">Click to upload a recent photo</p>
+                                    <p class="upload-hint">JPG, PNG or GIF - Max 5MB</p>
+                                    <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="reporter-name" class="form-label">Your Name <span class="form-required"></span></label>
+                                <input type="text" id="reporter-name" class="form-input" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reporter-phone" class="form-label">Your Phone <span class="form-required"></span></label>
+                                <input type="tel" id="reporter-phone" class="form-input" placeholder="Enter your phone number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="reporter-email" class="form-label">Your Email</label>
+                                <input type="email" id="reporter-email" class="form-input" placeholder="Enter your email address">
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label for="reporter-relationship" class="form-label">Relationship to Missing Person <span class="form-required"></span></label>
+                                <select id="reporter-relationship" class="form-select" required>
+                                    <option value="">Select relationship</option>
+                                    <option value="family">Family Member</option>
+                                    <option value="friend">Friend</option>
+                                    <option value="neighbor">Neighbor</option>
+                                    <option value="colleague">Colleague</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <label for="view-dashboard-radio" class="btn btn-secondary">
+                                Cancel
+                            </label>
+                            <button type="submit" class="btn-primary" onclick="windows.location.href='missing.html'">
+                                <i class="fas fa-paper-plane"></i> Submit Report
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

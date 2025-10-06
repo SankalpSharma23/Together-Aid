@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - TOGETHER AID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile menu toggle (CSS-only approach) -->
+        <input type="checkbox" id="menu-toggle" class="hidden">
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1 class="logo-text">TOGETHER AID</h1>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3 class="menu-title">Main Dashboard</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item" onclick="window.location.href='demo.html'">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='map.testing.html'">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Live Map</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='community.html'">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='missing.html'">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add Missing</span>
+                        </li>
+                         <li class="menu-item" onclick="window.location.href='barter.html'">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Barter System</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">Emergency Services</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Medical</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Fire & Rescue</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Supplies</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">User Management</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='profile.html'">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Profile</span>
+                        </li>
+                        <li class="menu-item active">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Emergency Responder</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="main-content">
+            <!-- Top Header -->
+            <div class="top-header">
+                <div class="header-left">
+                    <label for="menu-toggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </label>
+                    <div class="breadcrumb">
+                        <i class="fas fa-cog"></i>
+                        <span>User Management</span>
+                        <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
+                        <span>Settings</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="action-btn" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='community.html'">
+                            <i class="fas fa-comment"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Content -->
+            <div class="settings-container">
+                <div class="settings-header">
+                    <h1>Account Settings</h1>
+                    <p>Manage your account preferences and privacy settings</p>
+                </div>
+                
+                <div class="settings-category">
+                    <h2><i class="fas fa-user-shield"></i> Privacy & Security</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Two-Factor Authentication</h3>
+                            <p>Add an extra layer of security to your account</p>
+                        </div>
+                        <div class="settings-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Location Sharing</h3>
+                            <p>Allow the app to access your location during emergencies</p>
+                        </div>
+                        <div class="settings-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Data Backup</h3>
+                            <p>Automatically backup your emergency data</p>
+                        </div>
+                        <div class="settings-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-category">
+                    <h2><i class="fas fa-bell"></i> Notifications</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Emergency Alerts</h3>
+                            <p>Receive critical alerts during disasters by SMS</p>
+                        </div>
+                        <div class="settings-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Community Updates</h3>
+                            <p>Get notified about community posts and requests</p>
+                        </div>
+                        <div class="settings-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Email Notifications</h3>
+                            <p>Receive important updates via email</p>
+                        </div>
+                        <div class="settings-control">
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-category">
+                    <h2><i class="fas fa-paint-brush"></i> Appearance</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Theme</h3>
+                            <p>Choose between light and dark mode</p>
+                        </div>
+                        <div class="settings-control">
+                            <select class="select-control">
+                                <option>Dark Mode</option>
+                                <option>Light Mode</option>
+                                <option>Auto</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Font Size</h3>
+                            <p>Adjust the text size for better readability</p>
+                        </div>
+                        <div class="settings-control">
+                            <select class="select-control">
+                                <option>Default</option>
+                                <option>Large</option>
+                                <option>Extra Large</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-category">
+                    <h2><i class="fas fa-language"></i> Language & Region</h2>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Language</h3>
+                            <p>Choose your preferred language</p>
+                        </div>
+                        <div class="settings-control">
+                            <select class="select-control">
+                                <option>English</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                        <div class="settings-info">
+                            <h3>Time Format</h3>
+                            <p>Select your preferred time format</p>
+                        </div>
+                        <div class="settings-control">
+                            <select class="select-control">
+                                <option>12-hour</option>
+                                <option>24-hour</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-save" onclick="this.classList.add('saving'); setTimeout(() => { this.classList.remove('saving'); alert('Settings saved successfully!'); }, 1000);">
+                        Save Changes
+                    </button>
+                    <button class="btn-log" style="color: white; " onclick="window.location.href='logOut.html'">
+                        Log Out
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+   <script href="js/settings.js"></script>
+</body>
+</html>

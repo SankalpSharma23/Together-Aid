@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOGETHER AID - Emergency Barter System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/barter-stylesheet.css">
+    
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1 class="logo-text">TOGETHER AID</h1>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3 class="menu-title">Main Dashboard</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item"  onclick="window.location.href='demo.html'">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </li>
+                        <li class="menu-item"  onclick="window.location.href='map.testing.html'">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Live Map</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='community.html'">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </li>
+                        <li class="menu-item"   onclick="window.location.href='missing.html'">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Missing Report</span>
+                        </li>
+                        <li class="menu-item active" >
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Barter System</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">Emergency Services</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Medical</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Fire & Rescue</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Supplies</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">User Management</h3>
+                    <ul class="menu-items">
+                         <li class="menu-item " onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='profile.html'">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Profile</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Emergency Responder</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="main-content">
+            <!-- Top Header -->
+            <div class="top-header">
+                <div class="header-left">
+                    <!-- Add this inside the header-left div -->
+<button class="menu-toggle">
+    <i class="fas fa-bars"></i>
+</button>
+                    <div class="breadcrumb">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Barter System</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="action-btn" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='community.html'">
+                            <i class="fas fa-comment"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Barter System Content -->
+            <div class="barter-header">
+                <div>
+                    <h1 class="barter-title">Emergency Barter System</h1>
+                    <p class="barter-subtitle">Exchange goods and services with your community during emergencies</p>
+                </div>
+            </div>
+            
+            <div class="filters-container">
+                <button class="filter-btn active">All Items</button>
+                <button class="filter-btn">Food & Water</button>
+                <button class="filter-btn">Medical Supplies</button>
+                <button class="filter-btn">Shelter</button>
+                <button class="filter-btn">Transportation</button>
+                <button class="filter-btn">Tools</button>
+                <button class="filter-btn">Clothing</button>
+                <button class="filter-btn">Services</button>
+            </div>
+            
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search for items or services...">
+            </div>
+            
+            <div class="barter-grid">
+                <!-- Barter Item 1 -->
+                <div class="barter-card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar-sm">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>Sarah Johnson</h4>
+                                <p>Verified <i class="fas fa-check-circle" style="color: #10b981;"></i></p>
+                            </div>
+                        </div>
+                        <div class="urgency-badge">URGENT</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="offer-title">Water for Baby Formula</h3>
+                        <p class="offer-desc">I have clean bottled water to trade for baby formula. My baby is 6 months old.</p>
+                        
+                        <div class="exchange-details">
+                            <div class="have-item">
+                                <i class="fas fa-tint" style="color: #3b82f6;"></i>
+                                <span class="item-name">Bottled Water</span>
+                                <span class="item-category">Food & Water</span>
+                            </div>
+                            
+                            <div class="exchange-arrow">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            
+                            <div class="need-item">
+                                <i class="fas fa-baby" style="color: #f472b6;"></i>
+                                <span class="item-name">Baby Formula</span>
+                                <span class="item-category">Food & Water</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="contact-btn">
+                            <i class="fas fa-comment"></i>
+                            Contact
+                        </button>
+                        <div class="distance">
+                            <i class="fas fa-location-dot"></i>
+                            1.2 km away
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barter Item 2 -->
+                <div class="barter-card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar-sm">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>Michael Chen</h4>
+                                <p>Medical Professional</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="offer-title">Medical Help for Fuel</h3>
+                        <p class="offer-desc">I'm a doctor offering medical consultations in exchange for gasoline or diesel fuel.</p>
+                        
+                        <div class="exchange-details">
+                            <div class="have-item">
+                                <i class="fas fa-stethoscope" style="color: #ef4444;"></i>
+                                <span class="item-name">Medical Help</span>
+                                <span class="item-category">Services</span>
+                            </div>
+                            
+                            <div class="exchange-arrow">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            
+                            <div class="need-item">
+                                <i class="fas fa-gas-pump" style="color: #f59e0b;"></i>
+                                <span class="item-name">Fuel</span>
+                                <span class="item-category">Transportation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="contact-btn">
+                            <i class="fas fa-comment"></i>
+                            Contact
+                        </button>
+                        <div class="distance">
+                            <i class="fas fa-location-dot"></i>
+                            3.5 km away
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barter Item 3 -->
+                <div class="barter-card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar-sm">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>Emma Rodriguez</h4>
+                                <p>Verified <i class="fas fa-check-circle" style="color: #10b981;"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="offer-title">Canned Food for Batteries</h3>
+                        <p class="offer-desc">I have canned vegetables and soup to trade for AA or AAA batteries.</p>
+                        
+                        <div class="exchange-details">
+                            <div class="have-item">
+                                <i class="fas fa-can" style="color: #10b981;"></i>
+                                <span class="item-name">Canned Food</span>
+                                <span class="item-category">Food & Water</span>
+                            </div>
+                            
+                            <div class="exchange-arrow">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            
+                            <div class="need-item">
+                                <i class="fas fa-battery-full" style="color: #f59e0b;"></i>
+                                <span class="item-name">Batteries</span>
+                                <span class="item-category">Tools</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="contact-btn">
+                            <i class="fas fa-comment"></i>
+                            Contact
+                        </button>
+                        <div class="distance">
+                            <i class="fas fa-location-dot"></i>
+                            0.8 km away
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barter Item 4 -->
+                <div class="barter-card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar-sm">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>David Kim</h4>
+                                <p>Electrician</p>
+                            </div>
+                        </div>
+                        <div class="urgency-badge">URGENT</div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="offer-title">Electrical Work for Insulin</h3>
+                        <p class="offer-desc">I can help with electrical issues in exchange for insulin. My father is diabetic and we're running low.</p>
+                        
+                        <div class="exchange-details">
+                            <div class="have-item">
+                                <i class="fas fa-bolt" style="color: #f59e0b;"></i>
+                                <span class="item-name">Electrical Work</span>
+                                <span class="item-category">Services</span>
+                            </div>
+                            
+                            <div class="exchange-arrow">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            
+                            <div class="need-item">
+                                <i class="fas fa-syringe" style="color: #ef4444;"></i>
+                                <span class="item-name">Insulin</span>
+                                <span class="item-category">Medical</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="contact-btn">
+                            <i class="fas fa-comment"></i>
+                            Contact
+                        </button>
+                        <div class="distance">
+                            <i class="fas fa-location-dot"></i>
+                            2.1 km away
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barter Item 5 -->
+                <div class="barter-card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar-sm">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>Lisa Thompson</h4>
+                                <p>Verified <i class="fas fa-check-circle" style="color: #10b981;"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="offer-title">Blankets for Water Purification</h3>
+                        <p class="offer-desc">I have extra warm blankets to trade for water purification tablets or filters.</p>
+                        
+                        <div class="exchange-details">
+                            <div class="have-item">
+                                <i class="fas fa-bed" style="color: #8b5cf6;"></i>
+                                <span class="item-name">Blankets</span>
+                                <span class="item-category">Shelter</span>
+                            </div>
+                            
+                            <div class="exchange-arrow">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            
+                            <div class="need-item">
+                                <i class="fas fa-filter" style="color: #06b6d4;"></i>
+                                <span class="item-name">Water Purification</span>
+                                <span class="item-category">Tools</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="contact-btn">
+                            <i class="fas fa-comment"></i>
+                            Contact
+                        </button>
+                        <div class="distance">
+                            <i class="fas fa-location-dot"></i>
+                            1.7 km away
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Barter Item 6 -->
+                <div class="barter-card">
+                    <div class="card-header">
+                        <div class="user-info">
+                            <div class="user-avatar-sm">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-details">
+                                <h4>James Wilson</h4>
+                                <p>Farmer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="offer-title">Fresh Produce for Generator</h3>
+                        <p class="offer-desc">I have fresh vegetables from my farm to trade for a working generator or fuel.</p>
+                        
+                        <div class="exchange-details">
+                            <div class="have-item">
+                                <i class="fas fa-carrot" style="color: #10b981;"></i>
+                                <span class="item-name">Fresh Produce</span>
+                                <span class="item-category">Food & Water</span>
+                            </div>
+                            
+                            <div class="exchange-arrow">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            
+                            <div class="need-item">
+                                <i class="fas fa-generator" style="color: #6366f1;"></i>
+                                <span class="item-name">Generator</span>
+                                <span class="item-category">Tools</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <button class="contact-btn">
+                            <i class="fas fa-comment"></i>
+                            Contact
+                        </button>
+                        <div class="distance">
+                            <i class="fas fa-location-dot"></i>
+                            4.2 km away
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="add-offer-btn" onclick="window.location.href='barter-add.html'">
+                <i class="fas fa-plus"></i>
+            </button>
+        </main>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>

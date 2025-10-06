@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Map - TOGETHER AID</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation - Updated to match community.html -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1 class="logo-text">TOGETHER AID</h1>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                 <div class="menu-section">
+                    <h3 class="menu-title">Main Dashboard</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item"  onclick="window.location.href='demo.html'">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </li>
+                        <li class="menu-item active" >
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Live Map</span>
+                        </li>
+                        <li class="menu-item "  onclick="window.location.href='community.html'">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </li>
+                        <li class="menu-item"   onclick="window.location.href='missing.html'">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Missing Report</span>
+                        </li>
+                        <li class="menu-item " onclick="window.location.href='barter.html'">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Barter System</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">Emergency Services</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Medical</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Fire & Rescue</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </li>
+                        <li class="menu-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Supplies</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">User Management</h3>
+                    <ul class="menu-items">
+                         <li class="menu-item " onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='profile.html'">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Profile</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Emergency Responder</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="main-content">
+            <!-- Top Header -->
+            <div class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="breadcrumb">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>India Map</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="action-btn" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='community.html'">
+                            <i class="fas fa-comment"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Map Content -->
+            <div class="map-header mb-4">
+                <h2 class="text-2xl font-bold mb-2">India Map</h2>
+                <p class="text-gray-400">Interactive map showing district boundaries across India.</p>
+            </div>
+            
+            <!-- Map Container -->
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <script src="js/map.js"></script>
+</body>
+</html>

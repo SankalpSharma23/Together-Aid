@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOGETHER AID - Emergency Response System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <!-- for map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h1 class="logo-text">TOGETHER AID</h1>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3 class="menu-title">Main Dashboard</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item active" onclick="scrollToCenter('overview-section')">
+                            <i class="fas fa-home"></i>
+                            <span>Overview</span>
+                        </li>
+                        <li class="menu-item" onclick="scrollToCenter('live-map-section')">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>Live Map</span>
+                        </li>
+                        <li class="menu-item" onclick="scrollToCenter('community-section')">
+                            <i class="fas fa-users"></i>
+                            <span>Community</span>
+                        </li>
+                        <li class="menu-item" onclick="scrollToCenter('missing-section')">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add Missing</span>
+                        </li>
+                         <li class="menu-item" onclick="scrollToCenter('barter-section')">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Barter System</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">Emergency Services</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item" onclick="scrollToSection('medical-section')">
+                            <i class="fas fa-ambulance"></i>
+                            <span>Medical</span>
+                        </li>
+                        <li class="menu-item" onclick="scrollToSection('fire-section')">
+                            <i class="fas fa-fire-extinguisher"></i>
+                            <span>Fire & Rescue</span>
+                        </li>
+                        <li class="menu-item" onclick="scrollToSection('security-section')">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security</span>
+                        </li>
+                        <li class="menu-item" onclick="scrollToSection('supplies-section')">
+                            <i class="fas fa-truck"></i>
+                            <span>Supplies</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3 class="menu-title">User Management</h3>
+                    <ul class="menu-items">
+                         <li class="menu-item" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='profile.html'">
+                            <i class="fas fa-user-cog"></i>
+                            <span>Profile</span>
+                        </li>
+                        <li class="menu-item" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Emergency Responder</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="overlay"></div>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="breadcrumb">
+                        <span>Dashboard</span>
+                        <i class="fas fa-chevron-right"></i>
+                        <span>Overview</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="action-btn" onclick="window.location.href='notifications.html'">
+                            <i class="fas fa-bell"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='community.html'">
+                            <i class="fas fa-comment"></i>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Overview Section -->
+                <div id="overview-section">
+                    <!-- Emergency Alert Banner -->
+                    <div class="emergency-banner">
+                        <div class="banner-content">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div class="banner-text">
+                                <h3>Emergency Alert Active <span class="alert-level red">Red Alert</span></h3>
+                                <p>System monitoring 24/7 - All services operational</p>
+                            </div>
+                        </div>
+                        <button class="banner-close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>1,247</h3>
+                                <p>Active Users</p>
+                                <span class="stat-change positive">+12%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>89</h3>
+                                <p>Active Zones</p>
+                                <span class="stat-change positive">+5%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-ambulance"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>23</h3>
+                                <p>Active Incidents</p>
+                                <span class="stat-change negative">-8%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>156</h3>
+                                <p>Verified Reports</p>
+                                <span class="stat-change positive">+18%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content Grid -->
+                <div class="content-grid">
+                    <!-- Live Map Section -->
+                    <div class="content-card map-section" id="live-map-section">
+                        <div class="card-header">
+                            <h2>Live Emergency Map</h2>
+                            <div class="card-actions">
+                                <button class="btn-secondary" id="fullscreen-map-btn" onclick="window.location.href='map.testing.html'">
+                                    <i class="fas fa-expand"></i>
+                                    Fullscreen
+                                </button>
+                            </div>
+                        </div>
+                        <div class="map-container">
+                            <div id="map">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Section -->
+                    <div class="content-card activity-section" id="community-section">
+                        <div class="card-header">
+                            <h2>Community</h2>
+                            <button class="btn-secondary" onclick="window.location.href='community.html'">View All</button>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: #3b82f6;">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>New shelter verified in Downtown area</h4>
+                                    <p>Capacity for 50 people, has basic supplies</p>
+                                    <span class="activity-time">10 minutes ago</span>
+                                </div>
+                                <span class="verified-badge">
+                                    <i class="fas fa-check-circle"></i> Verified
+                                </span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: #ef4444;">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Flood warning issued for River District</h4>
+                                    <p>Evacuation recommended within 2 hours</p>
+                                    <span class="activity-time">25 minutes ago</span>
+                                </div>
+                                <span class="alert-level orange">Orange</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background: #22c55e;">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Supply delivery arrived at Central Park</h4>
+                                    <p>Water, blankets, and first aid kits available</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="content-card actions-section">
+                        <div class="card-header">
+                            <h2>Quick Actions</h2>
+                        </div>
+                        <div class="actions-grid">
+                            <button class="action-card emergency">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Emergency Call</span>
+                            </button>
+                            <button class="action-card add" onclick="window.location.href='missing.html'">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Add Missing</span>
+                            </button>
+                            <button class="action-card community" onclick="window.location.href='community.html'">
+                                <i class="fas fa-users"></i>
+                                <span>Community</span>
+                            </button>
+                            <button class="action-card barter" onclick="window.location.href='barter.html'">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Barter System</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Missing Persons Section -->
+                    <div class="content-card" id="missing-section">
+                        <div class="card-header">
+                            <h2>Missing Persons</h2>
+                            <button class="btn-secondary" onclick="window.location.href='missing.html'">Missing Report</button>
+                        </div>
+                        <div class="missing-person-card">
+                            <div class="missing-person-photo">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="missing-person-info">
+                                <div class="missing-person-name">Sarah Johnson</div>
+                                <div class="missing-person-details">Age 32, last seen near Main St. wearing blue jacket</div>
+                                <div class="missing-person-location">
+                                    <i class="fas fa-map-marker-alt"></i> Last seen 2 hours ago - 1.2 miles away
+                                </div>
+                            </div>
+                        </div>
+                        <div class="missing-person-card">
+                            <div class="missing-person-photo">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="missing-person-info">
+                                <div class="missing-person-name">Michael Chen</div>
+                                <div class="missing-person-details">Age 45, last seen at Oak Park with family</div>
+                                <div class="missing-person-location">
+                                    <i class="fas fa-map-marker-alt"></i> Last seen 4 hours ago - 0.8 miles away
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resource Tracking Section -->
+                    <div class="content-card" id="resources-section">
+                        <div class="card-header">
+                            <h2>Resource Tracking</h2>
+                            <button class="btn-secondary">View All</button>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Drinking Water</span>
+                            <span class="resource-status">
+                                <span class="resource-amount">Available: 120L</span>
+                                <span class="resource-indicator high"></span>
+                            </span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">First Aid Kits</span>
+                            <span class="resource-status">
+                                <span class="resource-amount">Available: 15</span>
+                                <span class="resource-indicator medium"></span>
+                            </span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Blankets</span>
+                            <span class="resource-status">
+                                <span class="resource-amount">Available: 42</span>
+                                <span class="resource-indicator high"></span>
+                            </span>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-name">Power Banks</span>
+                            <span class="resource-status">
+                                <span class="resource-amount">Available: 8</span>
+                                <span class="resource-indicator low"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Barter System Section -->
+                    <div class="content-card" id="barter-section">
+                        <div class="card-header">
+                            <h2>Barter System</h2>
+                            <button class="btn-secondary"  onclick="window.location.href='barter.html'">Post Item</button>
+                        </div>
+                        <div class="barter-item">
+                            <div class="barter-item-image">
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                            <div class="barter-item-details">
+                                <div class="barter-item-title">Portable Power Bank</div>
+                                <div class="barter-item-description">5000mAh capacity, good condition</div>
+                                <div class="barter-item-exchange">
+                                    <i class="fas fa-exchange-alt"></i> Looking for bottled water or first aid supplies
+                                </div>
+                            </div>
+                        </div>
+                        <div class="barter-item">
+                            <div class="barter-item-image">
+                                <i class="fas fa-pills"></i>
+                            </div>
+                            <div class="barter-item-details">
+                                <div class="barter-item-title">First Aid Kit</div>
+                                <div class="barter-item-description">Unopened, basic supplies</div>
+                                <div class="barter-item-exchange">
+                                    <i class="fas fa-exchange-alt"></i> Looking for baby formula or diapers
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+    <!-- for map view on demo -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+ <script src="js/demo.js"></script>
+ <script src="js/map.js"></script>
+</body>
+</html>
